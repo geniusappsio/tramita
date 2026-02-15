@@ -1,0 +1,38 @@
+{
+	"name": "geniusapps/tramita",
+	"description": "Process and document management for Brazilian municipal government",
+	"license": "AGPL-3.0-or-later",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Genius Apps",
+			"email": "contato@geniusapps.com.br"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"OCA\\Tramita\\": "lib/"
+		}
+	},
+	"require": {
+		"php": ">=8.1"
+	},
+	"require-dev": {
+		"nextcloud/ocp": "dev-master",
+		"phpunit/phpunit": "^9.6",
+		"nextcloud/coding-standard": "^1.2"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"platform": {
+			"php": "8.1"
+		}
+	},
+	"scripts": {
+		"lint": "find lib/ -name '*.php' -print0 | xargs -0 -n1 php -l",
+		"cs:check": "php-cs-fixer fix --dry-run --diff",
+		"cs:fix": "php-cs-fixer fix",
+		"test": "phpunit --configuration tests/phpunit.xml",
+		"test:unit": "phpunit --configuration tests/phpunit.xml --testsuite unit"
+	}
+}

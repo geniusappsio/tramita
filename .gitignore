@@ -1,0 +1,26 @@
+# Dependencies
+/node_modules/
+/vendor/
+
+# Build output
+/js/
+/build/
+
+# IDE e ferramentas locais
+/.idea/
+/.vscode/
+/.serena/
+.mcp.json
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Certificates (NEVER commit)
+*.key
+*.crt
+*.csr
+*.pem
