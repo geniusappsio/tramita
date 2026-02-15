@@ -33,12 +33,12 @@ Sistema completo de gestão de processos e tramitação de documentos para órg�
 
 Procure por **Tramita** na loja de apps do Nextcloud e clique em "Instalar".
 
-### Manual
+### Instalação manual
 
 ```bash
 # Clonar o repositório na pasta apps do Nextcloud
 cd /path/to/nextcloud/apps
-git clone https://github.com/geniusapps/tramita.git
+git clone https://github.com/geniusappsio/tramita.git
 cd tramita
 
 # Instalar dependências
@@ -53,6 +53,39 @@ php occ app:enable tramita
 ```
 
 Acesse o Nextcloud e clique em **Tramita** no menu de navegação.
+
+### Instalação em Docker
+
+Para instâncias Nextcloud rodando em Docker, os comandos são executados dentro do container:
+
+```bash
+# 1. Clonar no volume de apps (no servidor host)
+cd /var/lib/docker/volumes/nextcloud_data/_data/apps
+git clone https://github.com/geniusappsio/tramita.git
+
+# 2. Acessar o container
+docker exec -it nextcloud bash
+cd /var/www/html/apps/tramita
+
+# 3. Instalar Composer e dependências PHP
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install --no-dev
+
+# 4. Instalar Node.js e compilar o frontend
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+apt-get install -y nodejs
+npm ci
+npm run build
+
+# 5. Sair do container e ajustar permissões
+exit
+docker exec -it nextcloud chown -R www-data:www-data /var/www/html/apps/tramita
+
+# 6. Habilitar o app (occ fica na raiz do Nextcloud, executar como www-data)
+docker exec -u www-data nextcloud php /var/www/html/occ app:enable tramita
+```
+
+> Para deploys recorrentes, é recomendado fazer o build do frontend localmente e copiar a pasta `js/` para o servidor. Guia completo em [docs/guides/instalacao-docker.md](docs/guides/instalacao-docker.md).
 
 ## Desenvolvimento
 
@@ -126,6 +159,7 @@ SPA com Vue.js 2.7 montada via `templates/index.php`:
 | [Banco de Dados](docs/architecture/banco-de-dados.md) | Schema, índices, migrations |
 | [API Endpoints](docs/architecture/api-endpoints.md) | Endpoints com exemplos de request/response |
 | [Sistema de Licença](docs/architecture/sistema-licenca.md) | Validação, middleware, grace period |
+| [Instalação em Docker](docs/guides/instalacao-docker.md) | Passo a passo para Nextcloud com Docker |
 | [Guia para Iniciantes](docs/guides/guia-iniciante-nextcloud-dev.md) | Conceitos e padrões do Nextcloud |
 | [Publicação na App Store](docs/guides/publicacao-app-store.md) | Certificado, assinatura, regras |
 | [Cuidados de Segurança](docs/guides/cuidados-seguranca.md) | OWASP, LGPD, controle de acesso |

@@ -22,6 +22,7 @@ Sistema de gestão de processos e tramitação de documentos para órgãos públ
 - [Sistema de Licença](architecture/sistema-licenca.md) — Arquitetura de validação, middleware, grace period
 
 ### Guias
+- [Instalação em Docker](guides/instalacao-docker.md) — Passo a passo para instalar em Nextcloud com Docker
 - [Guia para Iniciantes](guides/guia-iniciante-nextcloud-dev.md) — Conceitos, padrões, exemplos de código, comandos úteis
 - [Publicação na App Store](guides/publicacao-app-store.md) — Certificado, assinatura, regras, automação
 - [Cuidados de Segurança](guides/cuidados-seguranca.md) — OWASP, LGPD, controle de acesso, validação
@@ -36,7 +37,7 @@ Sistema de gestão de processos e tramitação de documentos para órgãos públ
 ```bash
 # 1. Clonar o repositório dentro da pasta apps do Nextcloud
 cd /path/to/nextcloud/apps
-git clone https://github.com/geniusapps/tramita.git
+git clone https://github.com/geniusappsio/tramita.git
 
 # 2. Instalar dependências
 cd tramita
