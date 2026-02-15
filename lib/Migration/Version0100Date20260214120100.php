@@ -56,7 +56,7 @@ class Version0100Date20260214120100 extends SimpleMigrationStep {
 				'notnull' => true,
 				'length' => 256,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
 			$table->setPrimaryKey(['id']);
@@ -103,10 +103,10 @@ class Version0100Date20260214120100 extends SimpleMigrationStep {
 				'length' => 32,
 				'default' => 'open',
 			]);
-			$table->addColumn('due_date', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('due_date', Types::DATETIME, [
 				'notnull' => false,
 			]);
-			$table->addColumn('completed_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('completed_at', Types::DATETIME, [
 				'notnull' => false,
 			]);
 			$table->addColumn('requester_id', Types::STRING, [
@@ -132,13 +132,13 @@ class Version0100Date20260214120100 extends SimpleMigrationStep {
 				'notnull' => true,
 				'default' => false,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
-			$table->addColumn('updated_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('updated_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
-			$table->addColumn('deleted_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('deleted_at', Types::DATETIME, [
 				'notnull' => false,
 			]);
 			$table->setPrimaryKey(['id']);
@@ -186,7 +186,7 @@ class Version0100Date20260214120100 extends SimpleMigrationStep {
 				'precision' => 15,
 				'scale' => 4,
 			]);
-			$table->addColumn('value_date', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('value_date', Types::DATETIME, [
 				'notnull' => false,
 			]);
 			$table->addColumn('value_json', Types::JSON, [
@@ -196,10 +196,10 @@ class Version0100Date20260214120100 extends SimpleMigrationStep {
 				'notnull' => true,
 				'length' => 64,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
-			$table->addColumn('updated_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('updated_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
 			$table->setPrimaryKey(['id']);

@@ -60,13 +60,13 @@ class Version0100Date20260214120200 extends SimpleMigrationStep {
 				'notnull' => true,
 				'length' => 64,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
-			$table->addColumn('updated_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('updated_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
-			$table->addColumn('deleted_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('deleted_at', Types::DATETIME, [
 				'notnull' => false,
 			]);
 			$table->setPrimaryKey(['id']);
@@ -91,7 +91,7 @@ class Version0100Date20260214120200 extends SimpleMigrationStep {
 				'notnull' => true,
 				'unsigned' => true,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
 			$table->setPrimaryKey(['id']);
@@ -125,10 +125,10 @@ class Version0100Date20260214120200 extends SimpleMigrationStep {
 				'notnull' => true,
 				'length' => 64,
 			]);
-			$table->addColumn('assigned_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('assigned_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
-			$table->addColumn('unassigned_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('unassigned_at', Types::DATETIME, [
 				'notnull' => false,
 			]);
 			$table->addColumn('is_active', Types::BOOLEAN, [
@@ -172,13 +172,13 @@ class Version0100Date20260214120200 extends SimpleMigrationStep {
 			$table->addColumn('mentions', Types::JSON, [
 				'notnull' => false,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
-			$table->addColumn('updated_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('updated_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
-			$table->addColumn('deleted_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('deleted_at', Types::DATETIME, [
 				'notnull' => false,
 			]);
 			$table->setPrimaryKey(['id']);
@@ -230,7 +230,7 @@ class Version0100Date20260214120200 extends SimpleMigrationStep {
 				'notnull' => false,
 				'length' => 45,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
 			$table->setPrimaryKey(['id']);
@@ -272,7 +272,7 @@ class Version0100Date20260214120200 extends SimpleMigrationStep {
 			$table->addColumn('duration_secs', Types::BIGINT, [
 				'notnull' => false,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
 			$table->setPrimaryKey(['id']);
@@ -318,10 +318,10 @@ class Version0100Date20260214120200 extends SimpleMigrationStep {
 				'notnull' => true,
 				'default' => false,
 			]);
-			$table->addColumn('read_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('read_at', Types::DATETIME, [
 				'notnull' => false,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
 			$table->setPrimaryKey(['id']);
@@ -357,10 +357,10 @@ class Version0100Date20260214120200 extends SimpleMigrationStep {
 				'notnull' => true,
 				'default' => true,
 			]);
-			$table->addColumn('created_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('created_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
-			$table->addColumn('updated_at', Types::DATETIME_IMMUTABLE, [
+			$table->addColumn('updated_at', Types::DATETIME, [
 				'notnull' => true,
 			]);
 			$table->setPrimaryKey(['id']);
