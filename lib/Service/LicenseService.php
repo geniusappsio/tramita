@@ -15,6 +15,7 @@ class LicenseService {
 	private const VALIDATION_URL = 'https://license.geniusapps.com.br/api/v1/validate';
 	private const CACHE_TTL = 86400; // 24 hours
 	private const GRACE_PERIOD_DAYS = 7;
+	private const TRIAL_PERIOD_DAYS = 30;
 
 	public function __construct(
 		private LicenseMapper $mapper,
@@ -38,7 +39,7 @@ class LicenseService {
 	public function isValid(): bool {
 		$license = $this->getCurrentLicense();
 		if ($license === null) {
-			return false;
+			return $this->isTrialActive();
 		}
 
 		// Check cached validation
@@ -84,14 +85,37 @@ class LicenseService {
 
 	public function getLicenseInfo(): array {
 		$license = $this->getCurrentLicense();
+		$trialActive = $license === null && $this->isTrialActive();
 		return [
 			'hasLicense' => $license !== null,
-			'status' => $license?->getStatus() ?? 'none',
+			'status' => $trialActive ? 'trial' : ($license?->getStatus() ?? 'none'),
 			'licensedTo' => $license?->getLicensedTo(),
 			'validUntil' => $license?->getValidUntil()?->format(\DateTimeInterface::ATOM),
 			'maxUsers' => $license?->getMaxUsers() ?? 0,
 			'isValid' => $this->isValid(),
+			'trialDaysRemaining' => $trialActive ? $this->getTrialDaysRemaining() : null,
 		];
+	}
+
+	private function isTrialActive(): bool {
+		$installedAt = $this->config->getAppValue('tramita', 'installed_at', '');
+		if ($installedAt === '') {
+			// First access — record installation timestamp
+			$this->config->setAppValue('tramita', 'installed_at', (string) time());
+			return true;
+		}
+
+		$daysSinceInstall = (time() - (int) $installedAt) / 86400;
+		return $daysSinceInstall <= self::TRIAL_PERIOD_DAYS;
+	}
+
+	private function getTrialDaysRemaining(): int {
+		$installedAt = $this->config->getAppValue('tramita', 'installed_at', '');
+		if ($installedAt === '') {
+			return self::TRIAL_PERIOD_DAYS;
+		}
+		$remaining = self::TRIAL_PERIOD_DAYS - ((time() - (int) $installedAt) / 86400);
+		return max(0, (int) ceil($remaining));
 	}
 
 	private function validateRemote(License $license): bool {

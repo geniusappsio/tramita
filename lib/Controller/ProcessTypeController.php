@@ -54,6 +54,7 @@ class ProcessTypeController extends Controller {
 				$name,
 				$prefix,
 				$groupId,
+				$this->userId,
 				$description,
 				$color,
 				$icon,

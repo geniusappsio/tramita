@@ -38,7 +38,7 @@ export const requestApi = {
 		return response.data
 	},
 	async unassign(id, userId) {
-		const response = await api.delete(`/requests/${id}/assign`, { data: { userId } })
+		const response = await api.delete(`/requests/${id}/assign/${userId}`)
 		return response.data
 	},
 	async addLabel(id, labelId) {
@@ -46,7 +46,7 @@ export const requestApi = {
 		return response.data
 	},
 	async removeLabel(id, labelId) {
-		const response = await api.delete(`/requests/${id}/labels`, { data: { labelId } })
+		const response = await api.delete(`/requests/${id}/labels/${labelId}`)
 		return response.data
 	},
 	async setDeadline(id, dueDate) {

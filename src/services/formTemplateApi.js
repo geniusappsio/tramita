@@ -7,7 +7,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Array>}
 	 */
 	async getByProcessType(procTypeId) {
-		const response = await api.get(`/api/v1/process-types/${procTypeId}/form-templates`)
+		const response = await api.get(`/process-types/${procTypeId}/form-templates`)
 		return response.data
 	},
 
@@ -17,7 +17,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Object>}
 	 */
 	async getById(id) {
-		const response = await api.get(`/api/v1/form-templates/${id}`)
+		const response = await api.get(`/form-templates/${id}`)
 		return response.data
 	},
 
@@ -28,7 +28,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Object>}
 	 */
 	async create(procTypeId, data) {
-		const response = await api.post(`/api/v1/process-types/${procTypeId}/form-templates`, data)
+		const response = await api.post(`/process-types/${procTypeId}/form-templates`, data)
 		return response.data
 	},
 
@@ -39,7 +39,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Object>}
 	 */
 	async update(id, data) {
-		const response = await api.put(`/api/v1/form-templates/${id}`, data)
+		const response = await api.put(`/form-templates/${id}`, data)
 		return response.data
 	},
 
@@ -49,7 +49,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Object>}
 	 */
 	async delete(id) {
-		const response = await api.delete(`/api/v1/form-templates/${id}`)
+		const response = await api.delete(`/form-templates/${id}`)
 		return response.data
 	},
 
@@ -59,7 +59,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Array>}
 	 */
 	async getFields(templateId) {
-		const response = await api.get(`/api/v1/form-templates/${templateId}/fields`)
+		const response = await api.get(`/form-templates/${templateId}/fields`)
 		return response.data
 	},
 
@@ -70,7 +70,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Object>}
 	 */
 	async createField(templateId, data) {
-		const response = await api.post(`/api/v1/form-templates/${templateId}/fields`, data)
+		const response = await api.post(`/form-templates/${templateId}/fields`, data)
 		return response.data
 	},
 
@@ -81,7 +81,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Object>}
 	 */
 	async updateField(fieldId, data) {
-		const response = await api.put(`/api/v1/form-fields/${fieldId}`, data)
+		const response = await api.put(`/form-fields/${fieldId}`, data)
 		return response.data
 	},
 
@@ -91,7 +91,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Object>}
 	 */
 	async deleteField(fieldId) {
-		const response = await api.delete(`/api/v1/form-fields/${fieldId}`)
+		const response = await api.delete(`/form-fields/${fieldId}`)
 		return response.data
 	},
 
@@ -102,7 +102,7 @@ export const formTemplateApi = {
 	 * @returns {Promise<Array>}
 	 */
 	async reorderFields(templateId, fieldIds) {
-		const response = await api.put(`/api/v1/form-templates/${templateId}/fields/reorder`, { fieldIds })
+		const response = await api.put(`/form-templates/${templateId}/fields/reorder`, { fieldIds })
 		return response.data
 	},
 }

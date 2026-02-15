@@ -1,7 +1,7 @@
 import axios from '@nextcloud/axios'
 import { generateUrl } from '@nextcloud/router'
 
-const baseUrl = generateUrl('/apps/tramita')
+const baseUrl = generateUrl('/apps/tramita/api/v1')
 
 export const api = axios.create({
 	baseURL: baseUrl,
