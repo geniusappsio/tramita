@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>tramita</id>
+    <name>Tramita</name>
+    <summary>Sistema de gestão de processos e documentos para prefeituras</summary>
+    <summary lang="en">Process and document management for municipal government</summary>
+    <description><![CDATA[
+# Tramita
+
+Sistema completo de gestão de processos e tramitação de documentos para órgãos públicos municipais brasileiros.
+
+## Funcionalidades
+- Formulários configuráveis para solicitações internas e externas
+- Quadro Kanban visual com etapas dinâmicas
+- Numeração de protocolo automática
+- Atribuição de responsáveis, prazos e etiquetas
+- Notificações via sistema do Nextcloud
+- Histórico completo de movimentações
+
+**Desenvolvido por Genius Apps**
+    ]]></description>
+    <description lang="en"><![CDATA[
+# Tramita
+
+Complete process and document management system for Brazilian municipal government bodies.
+
+## Features
+- Configurable forms for internal and external requests
+- Visual Kanban board with dynamic stages
+- Automatic protocol numbering
+- User assignment, deadlines, and labels
+- Notifications via Nextcloud notification system
+- Complete audit trail
+
+**Developed by Genius Apps**
+    ]]></description>
+    <version>1.0.0</version>
+    <licence>agpl</licence>
+    <author mail="contato@geniusapps.com.br" homepage="https://geniusapps.com.br">Genius Apps</author>
+    <namespace>Tramita</namespace>
+    <category>organization</category>
+    <category>office</category>
+    <website>https://geniusapps.com.br/tramita</website>
+    <bugs>https://github.com/geniusapps/tramita/issues</bugs>
+    <repository type="git">https://github.com/geniusapps/tramita</repository>
+    <dependencies>
+        <php min-version="8.1"/>
+        <database>sqlite</database>
+        <database min-version="8.0">mysql</database>
+        <database min-version="12">pgsql</database>
+        <nextcloud min-version="28" max-version="31"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>Tramita</name>
+            <route>tramita.page.index</route>
+            <icon>app.svg</icon>
+            <order>10</order>
+        </navigation>
+    </navigations>
+    <settings>
+        <admin>OCA\Tramita\Settings\AdminSettings</admin>
+        <admin-section>OCA\Tramita\Settings\AdminSection</admin-section>
+    </settings>
+</info>
