@@ -16,7 +16,7 @@ class Protocol extends Entity implements JsonSerializable {
 	protected int $procTypeId = 0;
 	protected ?int $requestId = null;
 	protected string $groupId = '';
-	protected ?\DateTimeImmutable $createdAt = null;
+	protected ?\DateTime $createdAt = null;
 
 	public function __construct() {
 		$this->addType('year', 'integer');
@@ -39,7 +39,7 @@ class Protocol extends Entity implements JsonSerializable {
 			'procTypeId' => $this->procTypeId,
 			'requestId' => $this->requestId,
 			'groupId' => $this->groupId,
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
 		];
 	}
 }

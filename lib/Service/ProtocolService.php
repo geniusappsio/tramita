@@ -58,7 +58,7 @@ class ProtocolService {
 			$protocol->setProcTypeId($procTypeId);
 			$protocol->setRequestId($requestId);
 			$protocol->setGroupId($groupId);
-			$protocol->setCreatedAt(new \DateTimeImmutable());
+			$protocol->setCreatedAt(new \DateTime());
 
 			$protocol = $this->mapper->insert($protocol);
 

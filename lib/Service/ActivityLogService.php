@@ -38,7 +38,7 @@ class ActivityLogService {
 		$entry->setNewValue($newValue);
 		$entry->setDetails($details !== null ? json_encode($details) : null);
 		$entry->setIpAddress($ipAddress);
-		$entry->setCreatedAt(new \DateTimeImmutable());
+		$entry->setCreatedAt(new \DateTime());
 
 		return $this->activityLogMapper->insert($entry);
 	}

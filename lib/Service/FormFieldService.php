@@ -107,7 +107,7 @@ class FormFieldService {
 			}
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$field = new FormField();
 		$field->setTemplateId($templateId);
@@ -233,7 +233,7 @@ class FormFieldService {
 			$field->setConditional(json_encode($conditional));
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$field->setUpdatedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($field);
@@ -249,7 +249,7 @@ class FormFieldService {
 	public function delete(int $id): FormField {
 		$field = $this->findById($id);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$field->setDeletedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($field);
@@ -270,7 +270,7 @@ class FormFieldService {
 			$fieldMap[$field->getId()] = $field;
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$sortOrder = 0;
 
 		foreach ($fieldIds as $fieldId) {

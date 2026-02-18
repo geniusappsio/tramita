@@ -24,9 +24,9 @@ class FormField extends Entity implements JsonSerializable {
 	protected int $sortOrder = 0;
 	protected ?string $width = 'full';
 	protected ?string $conditional = null;
-	protected ?\DateTimeImmutable $createdAt = null;
-	protected ?\DateTimeImmutable $updatedAt = null;
-	protected ?\DateTimeImmutable $deletedAt = null;
+	protected ?\DateTime $createdAt = null;
+	protected ?\DateTime $updatedAt = null;
+	protected ?\DateTime $deletedAt = null;
 
 	public function __construct() {
 		$this->addType('templateId', 'integer');
@@ -67,9 +67,9 @@ class FormField extends Entity implements JsonSerializable {
 			'sortOrder' => $this->sortOrder,
 			'width' => $this->width,
 			'conditional' => json_decode($this->conditional ?? '[]', true),
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
-			'updatedAt' => $this->updatedAt?->format(\DateTimeInterface::ATOM),
-			'deletedAt' => $this->deletedAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
+			'updatedAt' => $this->updatedAt?->format(\DateTime::ATOM),
+			'deletedAt' => $this->deletedAt?->format(\DateTime::ATOM),
 		];
 	}
 }

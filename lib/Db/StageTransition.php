@@ -15,7 +15,7 @@ class StageTransition extends Entity implements JsonSerializable {
 	protected string $userId = '';
 	protected ?string $comment = null;
 	protected ?int $durationSecs = null;
-	protected ?\DateTimeImmutable $createdAt = null;
+	protected ?\DateTime $createdAt = null;
 
 	public function __construct() {
 		$this->addType('requestId', 'integer');
@@ -36,7 +36,7 @@ class StageTransition extends Entity implements JsonSerializable {
 			'userId' => $this->userId,
 			'comment' => $this->comment,
 			'durationSecs' => $this->durationSecs,
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
 		];
 	}
 }

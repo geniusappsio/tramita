@@ -40,7 +40,7 @@ class AssignmentService {
 		string $assignedBy,
 		string $role = 'assigned'
 	): Assignment {
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$assignment = new Assignment();
 		$assignment->setRequestId($requestId);
@@ -73,7 +73,7 @@ class AssignmentService {
 			throw new NotFoundException('Assignment not found');
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$assignment->setIsActive(false);
 		$assignment->setUnassignedAt($now->format('Y-m-d H:i:s'));
 

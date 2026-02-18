@@ -13,8 +13,8 @@ class Assignment extends Entity implements JsonSerializable {
 	protected string $userId = '';
 	protected string $role = 'assigned';
 	protected string $assignedBy = '';
-	protected ?\DateTimeImmutable $assignedAt = null;
-	protected ?\DateTimeImmutable $unassignedAt = null;
+	protected ?\DateTime $assignedAt = null;
+	protected ?\DateTime $unassignedAt = null;
 	protected bool $isActive = true;
 
 	public function __construct() {
@@ -34,8 +34,8 @@ class Assignment extends Entity implements JsonSerializable {
 			'userId' => $this->userId,
 			'role' => $this->role,
 			'assignedBy' => $this->assignedBy,
-			'assignedAt' => $this->assignedAt?->format(\DateTimeInterface::ATOM),
-			'unassignedAt' => $this->unassignedAt?->format(\DateTimeInterface::ATOM),
+			'assignedAt' => $this->assignedAt?->format(\DateTime::ATOM),
+			'unassignedAt' => $this->unassignedAt?->format(\DateTime::ATOM),
 			'isActive' => $this->isActive,
 		];
 	}

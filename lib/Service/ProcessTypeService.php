@@ -83,7 +83,7 @@ class ProcessTypeService {
 	): ProcessType {
 		$this->validateRequired($name, $prefix, $groupId);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$processType = new ProcessType();
 		$processType->setName($name);
@@ -164,7 +164,7 @@ class ProcessTypeService {
 			$processType->setSettings(json_encode($settings));
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$processType->setUpdatedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($processType);
@@ -180,7 +180,7 @@ class ProcessTypeService {
 	public function delete(int $id): ProcessType {
 		$processType = $this->findById($id);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$processType->setDeletedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($processType);

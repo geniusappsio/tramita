@@ -16,17 +16,17 @@ class Request extends Entity implements JsonSerializable {
 	protected ?string $description = null;
 	protected int $priority = 2;
 	protected string $status = 'open';
-	protected ?\DateTimeImmutable $dueDate = null;
-	protected ?\DateTimeImmutable $completedAt = null;
+	protected ?\DateTime $dueDate = null;
+	protected ?\DateTime $completedAt = null;
 	protected string $requesterId = '';
 	protected ?string $requesterName = null;
 	protected string $groupId = '';
 	protected int $sortOrder = 0;
 	protected ?string $metadata = null;
 	protected bool $isConfidential = false;
-	protected ?\DateTimeImmutable $createdAt = null;
-	protected ?\DateTimeImmutable $updatedAt = null;
-	protected ?\DateTimeImmutable $deletedAt = null;
+	protected ?\DateTime $createdAt = null;
+	protected ?\DateTime $updatedAt = null;
+	protected ?\DateTime $deletedAt = null;
 
 	public function __construct() {
 		$this->addType('protocolId', 'integer');
@@ -59,17 +59,17 @@ class Request extends Entity implements JsonSerializable {
 			'description' => $this->description,
 			'priority' => $this->priority,
 			'status' => $this->status,
-			'dueDate' => $this->dueDate?->format(\DateTimeInterface::ATOM),
-			'completedAt' => $this->completedAt?->format(\DateTimeInterface::ATOM),
+			'dueDate' => $this->dueDate?->format(\DateTime::ATOM),
+			'completedAt' => $this->completedAt?->format(\DateTime::ATOM),
 			'requesterId' => $this->requesterId,
 			'requesterName' => $this->requesterName,
 			'groupId' => $this->groupId,
 			'sortOrder' => $this->sortOrder,
 			'metadata' => json_decode($this->metadata ?? '[]', true),
 			'isConfidential' => $this->isConfidential,
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
-			'updatedAt' => $this->updatedAt?->format(\DateTimeInterface::ATOM),
-			'deletedAt' => $this->deletedAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
+			'updatedAt' => $this->updatedAt?->format(\DateTime::ATOM),
+			'deletedAt' => $this->deletedAt?->format(\DateTime::ATOM),
 		];
 	}
 }

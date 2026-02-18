@@ -75,7 +75,7 @@ class FormTemplateService {
 			}
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$template = new FormTemplate();
 		$template->setProcTypeId($procTypeId);
@@ -150,7 +150,7 @@ class FormTemplateService {
 			$template->setSettings(json_encode($settings));
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$template->setUpdatedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($template);
@@ -166,7 +166,7 @@ class FormTemplateService {
 	public function delete(int $id): FormTemplate {
 		$template = $this->findById($id);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$template->setDeletedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($template);

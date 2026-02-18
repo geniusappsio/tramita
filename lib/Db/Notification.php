@@ -16,8 +16,8 @@ class Notification extends Entity implements JsonSerializable {
 	protected ?string $message = null;
 	protected ?string $link = null;
 	protected bool $isRead = false;
-	protected ?\DateTimeImmutable $readAt = null;
-	protected ?\DateTimeImmutable $createdAt = null;
+	protected ?\DateTime $readAt = null;
+	protected ?\DateTime $createdAt = null;
 
 	public function __construct() {
 		$this->addType('userId', 'string');
@@ -41,8 +41,8 @@ class Notification extends Entity implements JsonSerializable {
 			'message' => $this->message,
 			'link' => $this->link,
 			'isRead' => $this->isRead,
-			'readAt' => $this->readAt?->format(\DateTimeInterface::ATOM),
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
+			'readAt' => $this->readAt?->format(\DateTime::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
 		];
 	}
 }

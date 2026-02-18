@@ -68,7 +68,7 @@ class LabelService {
 	): Label {
 		$this->validateName($name);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$label = new Label();
 		$label->setName($name);
@@ -115,7 +115,7 @@ class LabelService {
 			$label->setProcTypeId($procTypeId);
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$label->setUpdatedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($label);
@@ -131,7 +131,7 @@ class LabelService {
 	public function delete(int $id): Label {
 		$label = $this->findById($id);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$label->setDeletedAt($now->format('Y-m-d H:i:s'));
 		$label->setUpdatedAt($now->format('Y-m-d H:i:s'));
 
@@ -146,7 +146,7 @@ class LabelService {
 	 * @return RequestLabel
 	 */
 	public function addToRequest(int $requestId, int $labelId): RequestLabel {
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$requestLabel = new RequestLabel();
 		$requestLabel->setRequestId($requestId);

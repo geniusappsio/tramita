@@ -18,7 +18,7 @@ class ActivityLog extends Entity implements JsonSerializable {
 	protected ?string $newValue = null;
 	protected ?string $details = null;
 	protected ?string $ipAddress = null;
-	protected ?\DateTimeImmutable $createdAt = null;
+	protected ?\DateTime $createdAt = null;
 
 	public function __construct() {
 		$this->addType('requestId', 'integer');
@@ -45,7 +45,7 @@ class ActivityLog extends Entity implements JsonSerializable {
 			'newValue' => $this->newValue,
 			'details' => json_decode($this->details ?? '[]', true),
 			'ipAddress' => $this->ipAddress,
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
 		];
 	}
 }

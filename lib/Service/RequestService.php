@@ -147,7 +147,7 @@ class RequestService {
 			$groupId
 		);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$request = new Request();
 		$request->setProcTypeId($procTypeId);
@@ -243,7 +243,7 @@ class RequestService {
 			$request->setMetadata($metadata);
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$request->setUpdatedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($request);
@@ -294,13 +294,13 @@ class RequestService {
 			$request->setCompletedAt(null);
 		} elseif ($targetStage->getIsFinal()) {
 			$request->setStatus('completed');
-			$request->setCompletedAt((new \DateTimeImmutable())->format('Y-m-d H:i:s'));
+			$request->setCompletedAt((new \DateTime())->format('Y-m-d H:i:s'));
 		} else {
 			$request->setStatus('in_progress');
 			$request->setCompletedAt(null);
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$request->setUpdatedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($request);
@@ -316,7 +316,7 @@ class RequestService {
 	public function delete(int $id): Request {
 		$request = $this->findById($id);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$request->setDeletedAt($now->format('Y-m-d H:i:s'));
 		$request->setUpdatedAt($now->format('Y-m-d H:i:s'));
 

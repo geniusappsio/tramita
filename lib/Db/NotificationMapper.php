@@ -67,7 +67,7 @@ class NotificationMapper extends QBMapper {
 		$qb = $this->db->getQueryBuilder();
 		$qb->update($this->getTableName())
 			->set('is_read', $qb->createNamedParameter(true, IQueryBuilder::PARAM_BOOL))
-			->set('read_at', $qb->createNamedParameter(new \DateTimeImmutable(), IQueryBuilder::PARAM_DATETIME_IMMUTABLE))
+			->set('read_at', $qb->createNamedParameter(new \DateTime(), IQueryBuilder::PARAM_DATETIME_MUTABLE))
 			->where($qb->expr()->eq('id', $qb->createNamedParameter($id, IQueryBuilder::PARAM_INT)));
 		$qb->executeStatement();
 	}

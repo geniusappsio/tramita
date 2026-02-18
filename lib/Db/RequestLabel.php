@@ -11,7 +11,7 @@ class RequestLabel extends Entity implements JsonSerializable {
 
 	protected int $requestId = 0;
 	protected int $labelId = 0;
-	protected ?\DateTimeImmutable $createdAt = null;
+	protected ?\DateTime $createdAt = null;
 
 	public function __construct() {
 		$this->addType('requestId', 'integer');
@@ -24,7 +24,7 @@ class RequestLabel extends Entity implements JsonSerializable {
 			'id' => $this->id,
 			'requestId' => $this->requestId,
 			'labelId' => $this->labelId,
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
 		];
 	}
 }

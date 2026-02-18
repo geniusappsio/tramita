@@ -13,12 +13,12 @@ class License extends Entity implements JsonSerializable {
 	protected string $instanceId = '';
 	protected string $status = 'trial';
 	protected ?string $licensedTo = null;
-	protected ?\DateTimeImmutable $validUntil = null;
+	protected ?\DateTime $validUntil = null;
 	protected int $maxUsers = 0;
 	protected ?string $features = null;
-	protected ?\DateTimeImmutable $lastCheck = null;
-	protected ?\DateTimeImmutable $createdAt = null;
-	protected ?\DateTimeImmutable $updatedAt = null;
+	protected ?\DateTime $lastCheck = null;
+	protected ?\DateTime $createdAt = null;
+	protected ?\DateTime $updatedAt = null;
 
 	public function __construct() {
 		$this->addType('licenseKey', 'string');
@@ -40,12 +40,12 @@ class License extends Entity implements JsonSerializable {
 			'instanceId' => $this->instanceId,
 			'status' => $this->status,
 			'licensedTo' => $this->licensedTo,
-			'validUntil' => $this->validUntil?->format(\DateTimeInterface::ATOM),
+			'validUntil' => $this->validUntil?->format(\DateTime::ATOM),
 			'maxUsers' => $this->maxUsers,
 			'features' => json_decode($this->features ?? '[]', true),
-			'lastCheck' => $this->lastCheck?->format(\DateTimeInterface::ATOM),
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
-			'updatedAt' => $this->updatedAt?->format(\DateTimeInterface::ATOM),
+			'lastCheck' => $this->lastCheck?->format(\DateTime::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
+			'updatedAt' => $this->updatedAt?->format(\DateTime::ATOM),
 		];
 	}
 }

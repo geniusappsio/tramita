@@ -61,7 +61,7 @@ class CommentService {
 	): Comment {
 		$this->validateContent($content);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$comment = new Comment();
 		$comment->setRequestId($requestId);
@@ -92,7 +92,7 @@ class CommentService {
 
 		$comment->setContent($content);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$comment->setUpdatedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($comment);
@@ -108,7 +108,7 @@ class CommentService {
 	public function delete(int $id): Comment {
 		$comment = $this->findById($id);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$comment->setDeletedAt($now->format('Y-m-d H:i:s'));
 		$comment->setUpdatedAt($now->format('Y-m-d H:i:s'));
 

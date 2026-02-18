@@ -41,7 +41,7 @@ class NotificationService {
 			// No preference set — default is to notify
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$notification = new Notification();
 		$notification->setUserId($userId);
@@ -104,7 +104,7 @@ class NotificationService {
 		string $channel,
 		bool $isEnabled,
 	): NotifPref {
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		try {
 			$pref = $this->notifPrefMapper->findByUserAndEvent($userId, $eventType);

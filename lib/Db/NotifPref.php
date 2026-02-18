@@ -13,8 +13,8 @@ class NotifPref extends Entity implements JsonSerializable {
 	protected string $eventType = '';
 	protected string $channel = 'app';
 	protected bool $isEnabled = true;
-	protected ?\DateTimeImmutable $createdAt = null;
-	protected ?\DateTimeImmutable $updatedAt = null;
+	protected ?\DateTime $createdAt = null;
+	protected ?\DateTime $updatedAt = null;
 
 	public function __construct() {
 		$this->addType('userId', 'string');
@@ -32,8 +32,8 @@ class NotifPref extends Entity implements JsonSerializable {
 			'eventType' => $this->eventType,
 			'channel' => $this->channel,
 			'isEnabled' => $this->isEnabled,
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
-			'updatedAt' => $this->updatedAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
+			'updatedAt' => $this->updatedAt?->format(\DateTime::ATOM),
 		];
 	}
 }

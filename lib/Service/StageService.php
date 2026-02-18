@@ -75,7 +75,7 @@ class StageService {
 		$existingStages = $this->mapper->findByProcessType($procTypeId);
 		$sortOrder = count($existingStages);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		$stage = new Stage();
 		$stage->setProcTypeId($procTypeId);
@@ -165,7 +165,7 @@ class StageService {
 			$stage->setIsActive($isActive);
 		}
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$stage->setUpdatedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($stage);
@@ -181,7 +181,7 @@ class StageService {
 	public function delete(int $id): Stage {
 		$stage = $this->findById($id);
 
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		$stage->setDeletedAt($now->format('Y-m-d H:i:s'));
 
 		return $this->mapper->update($stage);
@@ -215,7 +215,7 @@ class StageService {
 		}
 
 		// Update sort_order for each stage
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 		foreach ($stageIds as $order => $stageId) {
 			$stage = $this->findById($stageId);
 			$stage->setSortOrder($order);

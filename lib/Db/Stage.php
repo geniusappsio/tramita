@@ -21,9 +21,9 @@ class Stage extends Entity implements JsonSerializable {
 	protected ?string $autoAssign = null;
 	protected ?int $slaHours = null;
 	protected bool $isActive = true;
-	protected ?\DateTimeImmutable $createdAt = null;
-	protected ?\DateTimeImmutable $updatedAt = null;
-	protected ?\DateTimeImmutable $deletedAt = null;
+	protected ?\DateTime $createdAt = null;
+	protected ?\DateTime $updatedAt = null;
+	protected ?\DateTime $deletedAt = null;
 
 	public function __construct() {
 		$this->addType('procTypeId', 'integer');
@@ -58,9 +58,9 @@ class Stage extends Entity implements JsonSerializable {
 			'autoAssign' => json_decode($this->autoAssign ?? '[]', true),
 			'slaHours' => $this->slaHours,
 			'isActive' => $this->isActive,
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
-			'updatedAt' => $this->updatedAt?->format(\DateTimeInterface::ATOM),
-			'deletedAt' => $this->deletedAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
+			'updatedAt' => $this->updatedAt?->format(\DateTime::ATOM),
+			'deletedAt' => $this->deletedAt?->format(\DateTime::ATOM),
 		];
 	}
 }

@@ -19,9 +19,9 @@ class FormTemplate extends Entity implements JsonSerializable {
 	protected int $sortOrder = 0;
 	protected ?string $settings = null;
 	protected string $createdBy = '';
-	protected ?\DateTimeImmutable $createdAt = null;
-	protected ?\DateTimeImmutable $updatedAt = null;
-	protected ?\DateTimeImmutable $deletedAt = null;
+	protected ?\DateTime $createdAt = null;
+	protected ?\DateTime $updatedAt = null;
+	protected ?\DateTime $deletedAt = null;
 
 	public function __construct() {
 		$this->addType('procTypeId', 'integer');
@@ -52,9 +52,9 @@ class FormTemplate extends Entity implements JsonSerializable {
 			'sortOrder' => $this->sortOrder,
 			'settings' => json_decode($this->settings ?? '[]', true),
 			'createdBy' => $this->createdBy,
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
-			'updatedAt' => $this->updatedAt?->format(\DateTimeInterface::ATOM),
-			'deletedAt' => $this->deletedAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
+			'updatedAt' => $this->updatedAt?->format(\DateTime::ATOM),
+			'deletedAt' => $this->deletedAt?->format(\DateTime::ATOM),
 		];
 	}
 }

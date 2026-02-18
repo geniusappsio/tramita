@@ -59,7 +59,7 @@ class LicenseService {
 
 		// Try to find existing
 		$license = $this->getCurrentLicense();
-		$now = new \DateTimeImmutable();
+		$now = new \DateTime();
 
 		if ($license === null) {
 			$license = new License();
@@ -131,13 +131,13 @@ class LicenseService {
 			]);
 
 			$data = json_decode($response->getBody(), true);
-			$now = new \DateTimeImmutable();
+			$now = new \DateTime();
 
 			if ($data['valid'] ?? false) {
 				$license->setStatus('active');
 				$license->setLicensedTo($data['licensed_to'] ?? null);
 				if (isset($data['expires'])) {
-					$license->setValidUntil(new \DateTimeImmutable($data['expires']));
+					$license->setValidUntil(new \DateTime($data['expires']));
 				}
 				if (isset($data['max_users'])) {
 					$license->setMaxUsers((int) $data['max_users']);

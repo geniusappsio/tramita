@@ -15,11 +15,11 @@ class FormResponse extends Entity implements JsonSerializable {
 	protected ?string $valueText = null;
 	protected ?int $valueInt = null;
 	protected ?string $valueDecimal = null;
-	protected ?\DateTimeImmutable $valueDate = null;
+	protected ?\DateTime $valueDate = null;
 	protected ?string $valueJson = null;
 	protected string $submittedBy = '';
-	protected ?\DateTimeImmutable $createdAt = null;
-	protected ?\DateTimeImmutable $updatedAt = null;
+	protected ?\DateTime $createdAt = null;
+	protected ?\DateTime $updatedAt = null;
 
 	public function __construct() {
 		$this->addType('requestId', 'integer');
@@ -44,11 +44,11 @@ class FormResponse extends Entity implements JsonSerializable {
 			'valueText' => $this->valueText,
 			'valueInt' => $this->valueInt,
 			'valueDecimal' => $this->valueDecimal,
-			'valueDate' => $this->valueDate?->format(\DateTimeInterface::ATOM),
+			'valueDate' => $this->valueDate?->format(\DateTime::ATOM),
 			'valueJson' => json_decode($this->valueJson ?? '[]', true),
 			'submittedBy' => $this->submittedBy,
-			'createdAt' => $this->createdAt?->format(\DateTimeInterface::ATOM),
-			'updatedAt' => $this->updatedAt?->format(\DateTimeInterface::ATOM),
+			'createdAt' => $this->createdAt?->format(\DateTime::ATOM),
+			'updatedAt' => $this->updatedAt?->format(\DateTime::ATOM),
 		];
 	}
 }
