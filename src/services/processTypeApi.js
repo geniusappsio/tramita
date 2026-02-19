@@ -3,7 +3,8 @@ import { api } from './api.js'
 export const processTypeApi = {
 	async getAll() {
 		const response = await api.get('/process-types')
-		return response.data
+		const data = response.data
+		return Array.isArray(data) ? data : (data?.data ?? [])
 	},
 
 	async getById(id) {
