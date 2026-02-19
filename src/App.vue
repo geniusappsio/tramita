@@ -37,6 +37,10 @@ export default {
 
 <style lang="scss">
 .app-tramita {
-	min-height: 100%;
+	height: 100%;
+
+	#app-content {
+		height: 100%;
+	}
 }
 </style>
