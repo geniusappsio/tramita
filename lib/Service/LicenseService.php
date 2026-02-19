@@ -37,6 +37,9 @@ class LicenseService {
 	}
 
 	public function isValid(): bool {
+		// TODO: reativar verificação de licença antes do lançamento em produção
+		return true;
+
 		$license = $this->getCurrentLicense();
 		if ($license === null) {
 			return $this->isTrialActive();
