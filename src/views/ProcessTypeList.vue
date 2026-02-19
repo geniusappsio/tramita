@@ -21,11 +21,6 @@
 			<template #icon>
 				<FolderIcon :size="20" />
 			</template>
-			<template #action>
-				<NcButton type="primary" @click="openCreateModal">
-					Criar Tipo de Processo
-				</NcButton>
-			</template>
 		</NcEmptyContent>
 
 		<!-- List -->
@@ -203,6 +198,9 @@ export default {
 
 <style scoped lang="scss">
 .process-type-list {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	padding: 20px;
 	max-width: 900px;
 
@@ -211,6 +209,7 @@ export default {
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 20px;
+		flex-shrink: 0;
 
 		h2 {
 			margin: 0;
@@ -221,6 +220,10 @@ export default {
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
+	}
+
+	.empty-content {
+		flex: 1;
 	}
 }
 
