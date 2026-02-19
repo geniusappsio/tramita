@@ -79,6 +79,15 @@ API RESTful em `/api/v1/` com ~35 endpoints. Recursos: process-types, stages, fo
 
 Rotas de página usam catch-all `/{path}` para roteamento client-side da SPA.
 
+## Versionamento
+
+**Sempre incremente a versão do app em `appinfo/info.xml` ao criar uma nova migration.**
+
+- Seguir semver: `MAJOR.MINOR.PATCH`
+- Adição de coluna/tabela nova → incrementar PATCH (ex: `1.0.0` → `1.0.1`)
+- Nova funcionalidade significativa → incrementar MINOR (ex: `1.0.1` → `1.1.0`)
+- O `occ upgrade` só executa migrations novas quando a versão do app muda — sem incremento, a migration nunca roda automaticamente no servidor
+
 ## Convenções Principais
 
 - **Namespace PHP**: `OCA\Tramita` mapeado para `lib/` via PSR-4
