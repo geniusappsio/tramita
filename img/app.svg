@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect x="2" y="4" width="8" height="24" rx="1" fill="#0082c9" opacity="0.6"/>
-  <rect x="12" y="8" width="8" height="20" rx="1" fill="#0082c9" opacity="0.8"/>
-  <rect x="22" y="6" width="8" height="22" rx="1" fill="#0082c9"/>
-  <path d="M6 10h0M16 14h0M26 12h0" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <path d="M6 14h0M16 18h0M26 16h0" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <path d="M6 18h0M26 20h0" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <!-- Documento com corner fold (fill-rule evenodd cria o recorte do canto) -->
+  <path fill="currentColor" fill-rule="evenodd"
+        d="M2 2h11l6 6v22H2z M13 2l6 6h-6z"/>
+  <!-- Seta de tramitação/encaminhamento -->
+  <path fill="currentColor"
+        d="M20 14h6v-3l4 5-4 5v-3h-6z"/>
 </svg>

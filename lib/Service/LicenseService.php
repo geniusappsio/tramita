@@ -127,7 +127,7 @@ class LicenseService {
 					'instance_id' => $license->getInstanceId(),
 					'app_version' => $this->config->getAppValue('tramita', 'installed_version', '1.0.0'),
 				],
-				'timeout' => 10,
+				'timeout' => 5,
 			]);
 
 			$data = json_decode($response->getBody(), true);

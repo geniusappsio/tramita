@@ -6,8 +6,13 @@ Vue.use(PiniaVuePlugin)
 
 const pinia = createPinia()
 
-export default new Vue({
-	el: '#tramita-admin-settings',
-	pinia,
-	render: h => h(AdminSettings),
+document.addEventListener('DOMContentLoaded', () => {
+	const el = document.getElementById('tramita-admin-settings')
+	if (el) {
+		new Vue({
+			el,
+			pinia,
+			render: h => h(AdminSettings),
+		})
+	}
 })

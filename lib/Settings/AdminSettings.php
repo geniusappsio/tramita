@@ -13,6 +13,7 @@ class AdminSettings implements ISettings {
 
 	public function getForm(): TemplateResponse {
 		Util::addScript(Application::APP_ID, 'tramita-admin');
+		Util::addStyle(Application::APP_ID, 'tramita');
 		return new TemplateResponse(Application::APP_ID, 'admin');
 	}
 
