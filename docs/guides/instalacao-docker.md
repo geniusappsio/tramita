@@ -113,7 +113,15 @@ su -s /bin/bash www-data -c "php /var/www/html/occ app:enable tramita"
 
 > **Importante**: Não use `php occ` a partir da pasta do app — o `occ` fica na raiz do Nextcloud (`/var/www/html/occ`), não na pasta do app. Executar como `root` também causará erro; sempre use o usuário `www-data`.
 
-## Passo 6 — Verificar
+## Passo 6 — Atualizar cache do Nextcloud
+
+Após habilitar o app, execute o repair para registrar assets e migrations:
+
+```bash
+docker exec -u www-data nextcloud php /var/www/html/occ maintenance:repair
+```
+
+## Passo 7 — Verificar
 
 1. Acesse o Nextcloud no navegador
 2. O item **Tramita** deve aparecer no menu de navegação
@@ -136,10 +144,11 @@ php composer.phar install --no-dev
 
 E refaça o build do frontend (Passo 3, Opção A ou B).
 
-Depois execute as migrações de banco:
+Depois execute as migrações de banco e atualize o cache:
 
 ```bash
-docker exec -u www-data nextcloud php occ upgrade
+docker exec -u www-data nextcloud php /var/www/html/occ upgrade
+docker exec -u www-data nextcloud php /var/www/html/occ maintenance:repair
 ```
 
 ## Solução de problemas
