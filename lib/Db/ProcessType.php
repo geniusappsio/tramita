@@ -17,6 +17,7 @@ class ProcessType extends Entity implements JsonSerializable {
 	protected ?string $icon = null;
 	protected string $groupId = '';
 	protected bool $isActive = true;
+	protected bool $isExternal = false;
 	protected int $sortOrder = 0;
 	protected ?string $settings = null;
 	protected string $createdBy = '';
@@ -33,6 +34,7 @@ class ProcessType extends Entity implements JsonSerializable {
 		$this->addType('icon', 'string');
 		$this->addType('groupId', 'string');
 		$this->addType('isActive', 'boolean');
+		$this->addType('isExternal', 'boolean');
 		$this->addType('sortOrder', 'integer');
 		$this->addType('settings', 'string');
 		$this->addType('createdBy', 'string');
@@ -52,6 +54,7 @@ class ProcessType extends Entity implements JsonSerializable {
 			'icon' => $this->icon,
 			'groupId' => $this->groupId,
 			'isActive' => $this->isActive,
+			'isExternal' => $this->isExternal,
 			'sortOrder' => $this->sortOrder,
 			'settings' => json_decode($this->settings ?? '[]', true),
 			'createdBy' => $this->createdBy,

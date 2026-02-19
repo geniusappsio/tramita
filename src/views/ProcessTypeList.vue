@@ -82,6 +82,13 @@
 								placeholder="Nome do grupo Nextcloud">
 						</div>
 					</div>
+					<div class="form-group">
+						<label class="checkbox-label">
+							<input id="pt-is-external" v-model="form.isExternal" type="checkbox">
+							Processo Externo
+						</label>
+						<span class="form-hint">Permitirá acesso por URL pública sem login (disponível em versão futura)</span>
+					</div>
 					<div class="form-actions">
 						<NcButton type="tertiary" @click="closeModal">Cancelar</NcButton>
 						<NcButton type="primary" native-type="submit" :disabled="saving">
@@ -132,6 +139,7 @@ export default {
 				description: '',
 				color: '#0082c9',
 				groupId: '',
+				isExternal: false,
 			},
 		}
 	},
@@ -143,7 +151,7 @@ export default {
 	methods: {
 		openCreateModal() {
 			this.editingId = null
-			this.form = { name: '', prefix: '', description: '', color: '#0082c9', groupId: '' }
+			this.form = { name: '', prefix: '', description: '', color: '#0082c9', groupId: '', isExternal: false }
 			this.showModal = true
 		},
 
@@ -155,6 +163,7 @@ export default {
 				description: pt.description || '',
 				color: pt.color || '#0082c9',
 				groupId: pt.groupId,
+				isExternal: pt.isExternal || false,
 			}
 			this.showModal = true
 		},
@@ -346,6 +355,13 @@ export default {
 .form-row {
 	display: flex;
 	gap: 12px;
+}
+
+.form-hint {
+	display: block;
+	font-size: 12px;
+	color: var(--color-text-maxcontrast);
+	margin-top: 2px;
 }
 
 .color-input {

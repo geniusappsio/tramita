@@ -79,6 +79,7 @@ class ProcessTypeService {
 		?string $description = null,
 		?string $color = null,
 		?string $icon = null,
+		?bool $isExternal = null,
 		?array $settings = null
 	): ProcessType {
 		$this->validateRequired($name, $prefix, $groupId);
@@ -95,6 +96,7 @@ class ProcessTypeService {
 		$processType->setColor($color);
 		$processType->setIcon($icon);
 		$processType->setIsActive(true);
+		$processType->setIsExternal($isExternal ?? false);
 		$processType->setSortOrder(0);
 		$processType->setSettings($settings !== null ? json_encode($settings) : null);
 		$processType->setCreatedAt($now->format('Y-m-d H:i:s'));
@@ -126,6 +128,7 @@ class ProcessTypeService {
 		?string $color = null,
 		?string $icon = null,
 		?bool $isActive = null,
+		?bool $isExternal = null,
 		?int $sortOrder = null,
 		?array $settings = null
 	): ProcessType {
@@ -154,6 +157,10 @@ class ProcessTypeService {
 
 		if ($isActive !== null) {
 			$processType->setIsActive($isActive);
+		}
+
+		if ($isExternal !== null) {
+			$processType->setIsExternal($isExternal);
 		}
 
 		if ($sortOrder !== null) {

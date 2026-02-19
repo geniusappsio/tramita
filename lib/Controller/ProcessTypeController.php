@@ -47,6 +47,7 @@ class ProcessTypeController extends Controller {
 		?string $description = null,
 		?string $color = null,
 		?string $icon = null,
+		?bool $isExternal = null,
 		?array $settings = null,
 	): DataResponse {
 		try {
@@ -58,6 +59,7 @@ class ProcessTypeController extends Controller {
 				$description,
 				$color,
 				$icon,
+				$isExternal,
 				$settings,
 			);
 			return new DataResponse($processType, Http::STATUS_CREATED);
@@ -78,6 +80,7 @@ class ProcessTypeController extends Controller {
 		?string $color = null,
 		?string $icon = null,
 		?bool $isActive = null,
+		?bool $isExternal = null,
 		?int $sortOrder = null,
 		?array $settings = null,
 	): DataResponse {
@@ -90,6 +93,7 @@ class ProcessTypeController extends Controller {
 				$color,
 				$icon,
 				$isActive,
+				$isExternal,
 				$sortOrder,
 				$settings,
 			);
