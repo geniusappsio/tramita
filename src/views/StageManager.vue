@@ -17,13 +17,7 @@
 		<!-- Empty state -->
 		<NcEmptyContent v-else-if="stages.length === 0"
 			name="Nenhuma etapa cadastrada"
-			description="Crie a primeira etapa do fluxo de trabalho para este tipo de processo.">
-			<template #action>
-				<NcButton type="primary" @click="openCreateModal">
-					Criar Etapa
-				</NcButton>
-			</template>
-		</NcEmptyContent>
+			description="Crie a primeira etapa do fluxo de trabalho para este tipo de processo." />
 
 		<!-- Draggable list -->
 		<draggable v-else
@@ -314,10 +308,18 @@ export default {
 
 <style scoped lang="scss">
 .stage-manager {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	padding: 20px;
 	max-width: 900px;
 
+	.empty-content {
+		flex: 1;
+	}
+
 	&__header {
+		flex-shrink: 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

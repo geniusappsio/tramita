@@ -74,11 +74,19 @@ export default {
 
 <style scoped lang="scss">
 .dashboard {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	padding: 20px;
 	max-width: 900px;
 	margin: 0 auto;
 
+	.empty-content {
+		flex: 1;
+	}
+
 	&__header {
+		flex-shrink: 0;
 		margin-bottom: 32px;
 
 		h2 {
