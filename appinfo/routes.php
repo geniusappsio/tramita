@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 return [
 	'routes' => [
-		// === Page (SPA entry point) ===
-		['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-		['name' => 'page#index', 'url' => '/{path}', 'verb' => 'GET',
-			'requirements' => ['path' => '.+'], 'postfix' => 'catchall'],
-
 		// === Process Types ===
 		['name' => 'processType#index', 'url' => '/api/v1/process-types', 'verb' => 'GET'],
 		['name' => 'processType#show', 'url' => '/api/v1/process-types/{id}', 'verb' => 'GET'],
@@ -67,5 +62,10 @@ return [
 		['name' => 'config#get', 'url' => '/api/v1/config', 'verb' => 'GET'],
 		['name' => 'config#setLicense', 'url' => '/api/v1/config/license', 'verb' => 'PUT'],
 		['name' => 'config#update', 'url' => '/api/v1/config/{key}', 'verb' => 'PUT'],
+
+		// === Page (SPA entry point) — deve ficar POR ÚLTIMO para não capturar rotas de API ===
+		['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
+		['name' => 'page#index', 'url' => '/{path}', 'verb' => 'GET',
+			'requirements' => ['path' => '.+'], 'postfix' => 'catchall'],
 	],
 ];
