@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import adminRouter from './adminRouter.js'
 import AdminSettings from './views/AdminSettings.vue'
 import { createPinia, PiniaVuePlugin } from 'pinia'
 
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		new Vue({
 			el,
 			pinia,
+			router: adminRouter,
 			render: h => h(AdminSettings),
 		})
 	}
