@@ -12,12 +12,12 @@ return [
 		['name' => 'processType#destroy', 'url' => '/api/v1/process-types/{id}', 'verb' => 'DELETE'],
 
 		// === Stages ===
-		['name' => 'stage#index', 'url' => '/api/v1/process-types/{processTypeId}/stages', 'verb' => 'GET'],
+		['name' => 'stage#index', 'url' => '/api/v1/process-types/{procTypeId}/stages', 'verb' => 'GET'],
 		['name' => 'stage#show', 'url' => '/api/v1/stages/{id}', 'verb' => 'GET'],
-		['name' => 'stage#create', 'url' => '/api/v1/process-types/{processTypeId}/stages', 'verb' => 'POST'],
+		['name' => 'stage#create', 'url' => '/api/v1/process-types/{procTypeId}/stages', 'verb' => 'POST'],
 		['name' => 'stage#update', 'url' => '/api/v1/stages/{id}', 'verb' => 'PUT'],
 		['name' => 'stage#destroy', 'url' => '/api/v1/stages/{id}', 'verb' => 'DELETE'],
-		['name' => 'stage#reorder', 'url' => '/api/v1/process-types/{processTypeId}/stages/reorder', 'verb' => 'PUT'],
+		['name' => 'stage#reorder', 'url' => '/api/v1/process-types/{procTypeId}/stages/reorder', 'verb' => 'PUT'],
 
 		// === Form Templates ===
 		['name' => 'formTemplate#index', 'url' => '/api/v1/process-types/{processTypeId}/form-templates', 'verb' => 'GET'],
@@ -34,9 +34,9 @@ return [
 		['name' => 'formField#reorder', 'url' => '/api/v1/form-templates/{formTemplateId}/fields/reorder', 'verb' => 'PUT'],
 
 		// === Requests (process instances / cards) ===
-		['name' => 'request#index', 'url' => '/api/v1/process-types/{processTypeId}/requests', 'verb' => 'GET'],
+		['name' => 'request#index', 'url' => '/api/v1/process-types/{procTypeId}/requests', 'verb' => 'GET'],
 		['name' => 'request#show', 'url' => '/api/v1/requests/{id}', 'verb' => 'GET'],
-		['name' => 'request#create', 'url' => '/api/v1/process-types/{processTypeId}/requests', 'verb' => 'POST'],
+		['name' => 'request#create', 'url' => '/api/v1/process-types/{procTypeId}/requests', 'verb' => 'POST'],
 		['name' => 'request#update', 'url' => '/api/v1/requests/{id}', 'verb' => 'PUT'],
 		['name' => 'request#destroy', 'url' => '/api/v1/requests/{id}', 'verb' => 'DELETE'],
 		['name' => 'request#move', 'url' => '/api/v1/requests/{id}/move', 'verb' => 'PUT'],
