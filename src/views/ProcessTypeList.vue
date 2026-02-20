@@ -38,12 +38,26 @@
 					</span>
 				</div>
 				<div class="process-type-item__actions">
-					<NcButton type="tertiary" @click="openEditModal(pt)">
+					<NcButton type="tertiary"
+						title="Configurar Etapas"
+						@click="$router.push({ name: 'stageManager', params: { id: pt.id } })">
+						<template #icon>
+							<ViewColumn :size="20" />
+						</template>
+					</NcButton>
+					<NcButton type="tertiary"
+						title="Configurar Formulário"
+						@click="$router.push({ name: 'formEditor', params: { id: pt.id } })">
+						<template #icon>
+							<ClipboardText :size="20" />
+						</template>
+					</NcButton>
+					<NcButton type="tertiary" title="Editar" @click="openEditModal(pt)">
 						<template #icon>
 							<Pencil :size="20" />
 						</template>
 					</NcButton>
-					<NcButton type="tertiary" @click="confirmDelete(pt)">
+					<NcButton type="tertiary" title="Excluir" @click="confirmDelete(pt)">
 						<template #icon>
 							<Delete :size="20" />
 						</template>
@@ -110,6 +124,8 @@ import Plus from 'vue-material-design-icons/Plus.vue'
 import Pencil from 'vue-material-design-icons/Pencil.vue'
 import Delete from 'vue-material-design-icons/Delete.vue'
 import FolderIcon from 'vue-material-design-icons/Folder.vue'
+import ViewColumn from 'vue-material-design-icons/ViewColumn.vue'
+import ClipboardText from 'vue-material-design-icons/ClipboardText.vue'
 import { showSuccess, showError } from '@nextcloud/dialogs'
 import { useProcessTypeStore } from '../store/processType.js'
 
@@ -125,6 +141,8 @@ export default {
 		Pencil,
 		Delete,
 		FolderIcon,
+		ViewColumn,
+		ClipboardText,
 	},
 
 	data() {
